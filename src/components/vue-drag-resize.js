@@ -27,6 +27,9 @@ export default {
         preventActiveBehavior: {
             type: Boolean, default: false
         },
+        preventActiveDeselect: {
+            type: Boolean, default: false
+        },
         isDraggable: {
             type: Boolean, default: true
         },
@@ -231,7 +234,7 @@ export default {
 
     methods: {
         deselect() {
-            if (this.preventActiveBehavior) {
+            if (this.preventActiveBehavior || this.preventActiveDeselect) {
                 return
             }
             this.active = false
